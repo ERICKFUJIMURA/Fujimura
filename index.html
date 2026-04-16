@@ -1,413 +1,531 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fujimura Engenhar Soluções | Serviços de Engenharia</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fujimura Engenhar Soluções | Engenharia, Laudos, ART e Perícias</title>
+    <meta name="description" content="Fujimura Engenhar Soluções - Serviços de engenharia mecânica, laudos técnicos, ART, perícia judicial e extrajudicial, inspeções técnicas, PMOC e adequações normativas." />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background:
+                linear-gradient(rgba(5, 23, 57, 0.82), rgba(5, 23, 57, 0.88)),
+                url('https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
             background-size: cover;
             background-position: center;
         }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+        .service-card:hover,
+        .stat-card:hover,
+        .highlight-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 30px -12px rgba(15, 23, 42, 0.28);
         }
-        
+
         .floating-button {
             animation: float 3s ease-in-out infinite;
         }
-        
+
         @keyframes float {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-12px); }
             100% { transform: translateY(0px); }
         }
-        
+
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+        }
+
         .map-container {
-            height: 400px;
+            height: 420px;
+        }
+
+        .section-title-line {
+            width: 92px;
+            height: 4px;
+            border-radius: 999px;
+            background: #f59e0b;
+            margin: 0 auto;
         }
     </style>
 </head>
-<body class="font-sans bg-gray-50">
-    <!-- Header/Navigation -->
-    <header class="bg-blue-900 text-white shadow-lg sticky top-0 z-50">
+<body class="bg-slate-50 text-slate-800">
+    <header class="bg-slate-950 text-white shadow-lg sticky top-0 z-50 border-b border-slate-800">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center">
-                <div class="bg-white p-2 rounded-full mr-3">
-                    <i class="fas fa-cogs text-blue-900 text-2xl"></i>
+            <a href="#home" class="flex items-center gap-3">
+                <div class="bg-amber-400 text-slate-950 w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg">
+                    <i class="fas fa-cogs text-xl"></i>
                 </div>
-                <h1 class="text-xl md:text-2xl font-bold">Fujimura <span class="text-yellow-300">Engenhar</span> Soluções</h1>
-            </div>
-            
+                <div>
+                    <h1 class="text-lg md:text-2xl font-bold tracking-wide">Fujimura <span class="text-amber-400">Engenhar</span> Soluções</h1>
+                    <p class="text-xs md:text-sm text-slate-300">Engenharia mecânica, conformidade e segurança técnica</p>
+                </div>
+            </a>
+
             <nav class="hidden md:block">
-                <ul class="flex space-x-8">
-                    <li><a href="#home" class="hover:text-yellow-300 transition">Início</a></li>
-                    <li><a href="#services" class="hover:text-yellow-300 transition">Serviços</a></li>
-                    <li><a href="#about" class="hover:text-yellow-300 transition">Sobre</a></li>
-                    <li><a href="#contact" class="hover:text-yellow-300 transition">Contato</a></li>
+                <ul class="flex items-center space-x-8 text-sm font-semibold">
+                    <li><a href="#home" class="hover:text-amber-400 transition">Início</a></li>
+                    <li><a href="#services" class="hover:text-amber-400 transition">Serviços</a></li>
+                    <li><a href="#diferenciais" class="hover:text-amber-400 transition">Diferenciais</a></li>
+                    <li><a href="#about" class="hover:text-amber-400 transition">Sobre</a></li>
+                    <li><a href="#contact" class="hover:text-amber-400 transition">Contato</a></li>
                 </ul>
             </nav>
-            
-            <button class="md:hidden text-2xl" id="mobile-menu-button">
+
+            <div class="hidden md:flex items-center gap-3">
+                <a href="https://wa.me/5562982171623?text=Olá%2C%20gostaria%20de%20solicitar%20um%20atendimento%20da%20Fujimura%20Engenhar%20Soluções." target="_blank" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-2.5 px-5 rounded-xl transition">
+                    WhatsApp
+                </a>
+            </div>
+
+            <button class="md:hidden text-2xl" id="mobile-menu-button" aria-label="Abrir menu">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div class="md:hidden hidden bg-blue-800" id="mobile-menu">
-            <ul class="px-4 py-2 space-y-3">
-                <li><a href="#home" class="block py-2 hover:text-yellow-300 transition">Início</a></li>
-                <li><a href="#services" class="block py-2 hover:text-yellow-300 transition">Serviços</a></li>
-                <li><a href="#about" class="block py-2 hover:text-yellow-300 transition">Sobre</a></li>
-                <li><a href="#contact" class="block py-2 hover:text-yellow-300 transition">Contato</a></li>
+
+        <div class="md:hidden hidden bg-slate-900 border-t border-slate-800" id="mobile-menu">
+            <ul class="px-4 py-3 space-y-3 text-sm font-medium">
+                <li><a href="#home" class="block py-2 hover:text-amber-400 transition">Início</a></li>
+                <li><a href="#services" class="block py-2 hover:text-amber-400 transition">Serviços</a></li>
+                <li><a href="#diferenciais" class="block py-2 hover:text-amber-400 transition">Diferenciais</a></li>
+                <li><a href="#about" class="block py-2 hover:text-amber-400 transition">Sobre</a></li>
+                <li><a href="#contact" class="block py-2 hover:text-amber-400 transition">Contato</a></li>
             </ul>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero text-white py-20 md:py-32 flex items-center">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">Soluções em Engenharia <span class="text-yellow-300">de Excelência</span></h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Manutenção, Projetos, laudos técnicos, perícias e inspeções com qualidade e comprometimento</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#contact" class="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
-                    Fale Conosco
-                </a>
-                <a href="#services" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-900 font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
-                    Nossos Serviços
-                </a>
+    <section id="home" class="hero text-white py-20 md:py-28">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-10 items-center">
+                <div>
+                    <span class="inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-4 py-2 text-sm font-medium mb-6">
+                        <i class="fas fa-shield-halved text-amber-400"></i>
+                        Soluções práticas, segurança e conformidade legal
+                    </span>
+
+                    <h2 class="text-4xl md:text-6xl leading-tight font-extrabold mb-6">
+                        Engenharia com <span class="text-amber-400">rigor técnico</span> para quem não aceita improviso.
+                    </h2>
+
+                    <p class="text-lg md:text-xl text-slate-200 max-w-2xl mb-8">
+                        Laudos técnicos, ART, perícias, inspeções, PMOC, adequações normativas e apoio especializado em manutenção e engenharia mecânica.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 mb-10">
+                        <a href="https://wa.me/5562982171623?text=Olá%2C%20gostaria%20de%20solicitar%20um%20orçamento." target="_blank" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-3.5 px-8 rounded-xl transition duration-300 text-center">
+                            Solicitar Orçamento
+                        </a>
+                        <a href="#services" class="border-2 border-white/70 hover:bg-white hover:text-slate-950 font-bold py-3.5 px-8 rounded-xl transition duration-300 text-center">
+                            Conhecer Serviços
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="glass rounded-2xl p-4 border border-white/10">
+                            <p class="text-2xl font-bold text-amber-400">+10 anos</p>
+                            <p class="text-sm text-slate-200">de atuação em manutenção e engenharia</p>
+                        </div>
+                        <div class="glass rounded-2xl p-4 border border-white/10">
+                            <p class="text-2xl font-bold text-amber-400">Atendimento</p>
+                            <p class="text-sm text-slate-200">para demandas técnicas e operacionais</p>
+                        </div>
+                        <div class="glass rounded-2xl p-4 border border-white/10">
+                            <p class="text-2xl font-bold text-amber-400">Foco</p>
+                            <p class="text-sm text-slate-200">em segurança, clareza e conformidade</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="bg-white/10 border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-slate-950/60 rounded-2xl p-5 border border-white/10">
+                                <i class="fas fa-file-circle-check text-amber-400 text-2xl mb-4"></i>
+                                <h3 class="font-bold mb-2">Laudos e ART</h3>
+                                <p class="text-sm text-slate-300">Documentação técnica com responsabilidade e respaldo profissional.</p>
+                            </div>
+                            <div class="bg-slate-950/60 rounded-2xl p-5 border border-white/10">
+                                <i class="fas fa-scale-balanced text-amber-400 text-2xl mb-4"></i>
+                                <h3 class="font-bold mb-2">Perícias</h3>
+                                <p class="text-sm text-slate-300">Atuação técnica em demandas judiciais e extrajudiciais.</p>
+                            </div>
+                            <div class="bg-slate-950/60 rounded-2xl p-5 border border-white/10">
+                                <i class="fas fa-screwdriver-wrench text-amber-400 text-2xl mb-4"></i>
+                                <h3 class="font-bold mb-2">Inspeções</h3>
+                                <p class="text-sm text-slate-300">Avaliações de máquinas, equipamentos e instalações.</p>
+                            </div>
+                            <div class="bg-slate-950/60 rounded-2xl p-5 border border-white/10">
+                                <i class="fas fa-clipboard-list text-amber-400 text-2xl mb-4"></i>
+                                <h3 class="font-bold mb-2">Planos Técnicos</h3>
+                                <p class="text-sm text-slate-300">PMOC, adequações normativas e rotinas de manutenção.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden lg:block absolute -bottom-6 -left-6 bg-amber-400 text-slate-950 p-5 rounded-2xl shadow-xl">
+                        <p class="text-xs font-bold uppercase tracking-wider">Atuação técnica</p>
+                        <p class="text-lg font-extrabold">com responsabilidade real</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-16 bg-white">
+    <section id="services" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Nossos <span class="text-yellow-500">Serviços</span></h2>
-                <div class="w-24 h-1 bg-yellow-500 mx-auto"></div>
-                <p class="mt-6 text-gray-600 max-w-2xl mx-auto">Oferecemos soluções completas em engenharia com qualidade técnica e atendimento personalizado</p>
+            <div class="text-center mb-14">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Serviços <span class="text-amber-500">Especializados</span></h2>
+                <div class="section-title-line"></div>
+                <p class="mt-6 text-slate-600 max-w-3xl mx-auto">Atuação técnica estruturada para empresas, operações, processos judiciais, inspeções, regularizações e demandas de manutenção.</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
-                    <div class="h-48 bg-blue-100 flex items-center justify-center">
-                        <i class="fas fa-file-alt text-blue-900 text-6xl"></i>
+                <div class="service-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition duration-300">
+                    <div class="h-44 bg-slate-100 flex items-center justify-center">
+                        <i class="fas fa-file-alt text-slate-900 text-5xl"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-900 mb-3">Projetos e Laudos Técnicos</h3>
-                        <p class="text-gray-600">Elaboração de projetos técnicos e laudos especializados para diversos segmentos da engenharia.</p>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Projetos e Laudos Técnicos</h3>
+                        <p class="text-slate-600">Elaboração de documentos técnicos, pareceres, avaliações e laudos com clareza, critério e embasamento profissional.</p>
                     </div>
                 </div>
-                
-                <!-- Service 2 -->
-                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
-                    <div class="h-48 bg-blue-100 flex items-center justify-center">
-                        <i class="fas fa-gavel text-blue-900 text-6xl"></i>
+
+                <div class="service-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition duration-300">
+                    <div class="h-44 bg-slate-100 flex items-center justify-center">
+                        <i class="fas fa-gavel text-slate-900 text-5xl"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-900 mb-3">Perícia Judicial e Extrajudicial</h3>
-                        <p class="text-gray-600">Serviços periciais técnicos especializados para processos judiciais e acordos extrajudiciais.</p>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Perícia Judicial e Extrajudicial</h3>
+                        <p class="text-slate-600">Assistência técnica, perícias e análises especializadas para processos, litígios, acordos e apurações técnicas.</p>
                     </div>
                 </div>
-                
-                <!-- Service 3 -->
-                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
-                    <div class="h-48 bg-blue-100 flex items-center justify-center">
-                        <i class="fas fa-hard-hat text-blue-900 text-6xl"></i>
+
+                <div class="service-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition duration-300">
+                    <div class="h-44 bg-slate-100 flex items-center justify-center">
+                        <i class="fas fa-hard-hat text-slate-900 text-5xl"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-900 mb-3">Inspeções Técnicas</h3>
-                        <p class="text-gray-600">Inspeções em máquinas e equipamentos pesados para garantir segurança e conformidade.</p>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Inspeções Técnicas</h3>
+                        <p class="text-slate-600">Inspeções em máquinas, equipamentos e sistemas com foco em segurança, operacionalidade e conformidade normativa.</p>
                     </div>
                 </div>
-                
-                <!-- Service 4 -->
-                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
-                    <div class="h-48 bg-blue-100 flex items-center justify-center">
-                        <i class="fas fa-snowflake text-blue-900 text-6xl"></i>
+
+                <div class="service-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition duration-300">
+                    <div class="h-44 bg-slate-100 flex items-center justify-center">
+                        <i class="fas fa-snowflake text-slate-900 text-5xl"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-900 mb-3">PMOC para Refrigeração</h3>
-                        <p class="text-gray-600">Plano de Manutenção, Operação e Controle para sistemas de refrigeração e climatização.</p>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">PMOC para Climatização</h3>
+                        <p class="text-slate-600">Plano de Manutenção, Operação e Controle para sistemas de climatização, refrigeração e qualidade do ar interior.</p>
                     </div>
                 </div>
-                
-                <!-- Service 5 -->
-                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
-                    <div class="h-48 bg-blue-100 flex items-center justify-center">
-                        <i class="fas fa-child text-blue-900 text-6xl"></i>
+
+                <div class="service-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition duration-300">
+                    <div class="h-44 bg-slate-100 flex items-center justify-center">
+                        <i class="fas fa-child-reaching text-slate-900 text-5xl"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-900 mb-3">Laudos para Playground</h3>
-                        <p class="text-gray-600">Laudos técnicos especializados para brinquedos de playground, garantindo segurança.</p>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Laudos para Playground</h3>
+                        <p class="text-slate-600">Avaliação técnica e emissão de laudos para brinquedos e estruturas recreativas, com foco em segurança de uso.</p>
                     </div>
                 </div>
-                
-                <!-- Service 6 -->
-                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
-                    <div class="h-48 bg-blue-100 flex items-center justify-center">
-                        <i class="fas fa-file-signature text-blue-900 text-6xl"></i>
+
+                <div class="service-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition duration-300">
+                    <div class="h-44 bg-slate-100 flex items-center justify-center">
+                        <i class="fas fa-file-signature text-slate-900 text-5xl"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-900 mb-3">ARTs e RRTs</h3>
-                        <p class="text-gray-600">Emissão de Anotações de Responsabilidade Técnica e Registros de Responsabilidade Técnica.</p>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">ART e Responsabilidade Técnica</h3>
+                        <p class="text-slate-600">Emissão de ART e acompanhamento técnico conforme a natureza do serviço, com responsabilidade efetiva e atuação profissional.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-gray-100">
+    <section id="diferenciais" class="py-20 bg-slate-100">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
-                    <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-6">Sobre a <span class="text-yellow-500">Fujimura</span></h2>
-                    <div class="w-24 h-1 bg-yellow-500 mb-6"></div>
-                    <p class="text-gray-700 mb-4">A Fujimura Engenhar Soluções é uma empresa especializada em serviços de engenharia, comprometida com a excelência técnica e a satisfação dos clientes.</p>
-                    <p class="text-gray-700 mb-4">Nossa equipe de engenheiros qualificados está preparada para oferecer soluções personalizadas e eficientes para os mais diversos desafios da engenharia.</p>
-                    <p class="text-gray-700">Atuamos com ética, transparência e comprometimento, garantindo a qualidade e segurança em todos os nossos serviços.</p>
+            <div class="text-center mb-14">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Por que escolher a <span class="text-amber-500">Fujimura</span></h2>
+                <div class="section-title-line"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="highlight-card bg-white rounded-2xl p-6 border border-slate-200 shadow-sm transition duration-300">
+                    <i class="fas fa-medal text-amber-500 text-3xl mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Rigor técnico</h3>
+                    <p class="text-slate-600 text-sm">Serviços conduzidos com base técnica, documentação consistente e responsabilidade profissional.</p>
                 </div>
-                <div class="lg:w-1/2 relative">
-                    <img src="https://images.unsplash.com/photo-1581093196272-c1a2b2b9653a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Engenheiros trabalhando" class="rounded-lg shadow-xl w-full">
-                    <div class="absolute -bottom-6 -right-6 bg-yellow-500 text-blue-900 p-6 rounded-lg shadow-lg hidden lg:block">
-                        <h3 class="text-xl font-bold mb-2">+15 Anos</h3>
-                        <p>de experiência</p>
+                <div class="highlight-card bg-white rounded-2xl p-6 border border-slate-200 shadow-sm transition duration-300">
+                    <i class="fas fa-scale-balanced text-amber-500 text-3xl mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Conformidade</h3>
+                    <p class="text-slate-600 text-sm">Atenção às exigências legais, normativas e operacionais aplicáveis a cada serviço.</p>
+                </div>
+                <div class="highlight-card bg-white rounded-2xl p-6 border border-slate-200 shadow-sm transition duration-300">
+                    <i class="fas fa-comments text-amber-500 text-3xl mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Comunicação clara</h3>
+                    <p class="text-slate-600 text-sm">Linguagem objetiva, atendimento direto e orientação técnica sem firula nem fumaça.</p>
+                </div>
+                <div class="highlight-card bg-white rounded-2xl p-6 border border-slate-200 shadow-sm transition duration-300">
+                    <i class="fas fa-helmet-safety text-amber-500 text-3xl mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Vivência de campo</h3>
+                    <p class="text-slate-600 text-sm">Experiência prática em manutenção, equipamentos e demandas operacionais reais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-5">Sobre a <span class="text-amber-500">Fujimura Engenhar Soluções</span></h2>
+                    <div class="w-24 h-1 bg-amber-500 rounded-full mb-6"></div>
+                    <p class="text-slate-700 mb-4 leading-7">A Fujimura Engenhar Soluções atua com serviços de engenharia mecânica, manutenção, inspeções, laudos, ART e perícias, sempre com foco em qualidade técnica, segurança e conformidade legal.</p>
+                    <p class="text-slate-700 mb-4 leading-7">A proposta é simples, mas séria: entregar soluções práticas, bem fundamentadas e adequadas à realidade de cada cliente. Engenharia boa é aquela que resolve, documenta e resiste à prova do tempo — não aquela que só enfeita proposta.</p>
+                    <p class="text-slate-700 leading-7">Cada atendimento é conduzido com ética, compromisso, transparência e responsabilidade técnica efetiva.</p>
+                </div>
+
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1581093196272-c1a2b2b9653a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Equipe de engenharia em atividade técnica" class="rounded-3xl shadow-xl w-full object-cover min-h-[420px]" />
+                    <div class="absolute bottom-6 left-6 right-6 bg-white/95 rounded-2xl shadow-xl p-5 border border-slate-200">
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div>
+                                <p class="text-2xl font-extrabold text-slate-900">Qualidade</p>
+                                <p class="text-sm text-slate-600">em documentação e execução</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-extrabold text-slate-900">Segurança</p>
+                                <p class="text-sm text-slate-600">como valor técnico central</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <div class="text-blue-900 text-4xl mb-3">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
+
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="stat-card bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center transition duration-300">
+                    <i class="fas fa-check-circle text-slate-900 text-3xl mb-3"></i>
                     <h3 class="font-bold text-lg mb-2">Qualidade</h3>
-                    <p class="text-gray-600">Serviços com padrão de excelência</p>
+                    <p class="text-slate-600 text-sm">Serviços conduzidos com padrão técnico e atenção aos detalhes.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <div class="text-blue-900 text-4xl mb-3">
-                        <i class="fas fa-clock"></i>
-                    </div>
+                <div class="stat-card bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center transition duration-300">
+                    <i class="fas fa-bolt text-slate-900 text-3xl mb-3"></i>
                     <h3 class="font-bold text-lg mb-2">Agilidade</h3>
-                    <p class="text-gray-600">Respostas rápidas e eficientes</p>
+                    <p class="text-slate-600 text-sm">Atendimento prático, organizado e orientado para solução.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <div class="text-blue-900 text-4xl mb-3">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
+                <div class="stat-card bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center transition duration-300">
+                    <i class="fas fa-shield-alt text-slate-900 text-3xl mb-3"></i>
                     <h3 class="font-bold text-lg mb-2">Segurança</h3>
-                    <p class="text-gray-600">Conformidade com normas técnicas</p>
+                    <p class="text-slate-600 text-sm">Foco na integridade operacional e conformidade técnica.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <div class="text-blue-900 text-4xl mb-3">
-                        <i class="fas fa-handshake"></i>
-                    </div>
+                <div class="stat-card bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center transition duration-300">
+                    <i class="fas fa-handshake text-slate-900 text-3xl mb-3"></i>
                     <h3 class="font-bold text-lg mb-2">Compromisso</h3>
-                    <p class="text-gray-600">Atendimento personalizado</p>
+                    <p class="text-slate-600 text-sm">Relacionamento profissional, direto e confiável.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-blue-900 text-white">
+    <section id="contact" class="py-20 bg-slate-950 text-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Entre em <span class="text-yellow-300">Contato</span></h2>
-                <div class="w-24 h-1 bg-yellow-500 mx-auto"></div>
-                <p class="mt-6 max-w-2xl mx-auto">Estamos prontos para atender suas necessidades em engenharia com soluções personalizadas</p>
+            <div class="text-center mb-14">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Entre em <span class="text-amber-400">Contato</span></h2>
+                <div class="section-title-line"></div>
+                <p class="mt-6 max-w-3xl mx-auto text-slate-300">Atendimento para orçamentos, análises técnicas, laudos, inspeções, ART e demais demandas de engenharia.</p>
             </div>
-            
-            <div class="flex flex-col lg:flex-row gap-10">
-                <div class="lg:w-1/2">
-                    <form class="space-y-6">
+
+            <div class="grid lg:grid-cols-2 gap-10">
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-xl">
+                    <h3 class="text-2xl font-bold mb-6 text-amber-400">Solicite um atendimento</h3>
+
+                    <form id="contact-form" class="space-y-5">
                         <div>
-                            <label for="name" class="block mb-2">Seu Nome</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg bg-blue-800 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            <label for="name" class="block mb-2 text-sm font-medium">Seu Nome</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="Digite seu nome" />
                         </div>
                         <div>
-                            <label for="email" class="block mb-2">Seu E-mail</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg bg-blue-800 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            <label for="email" class="block mb-2 text-sm font-medium">Seu E-mail</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="Digite seu e-mail" />
                         </div>
                         <div>
-                            <label for="phone" class="block mb-2">Telefone</label>
-                            <input type="tel" id="phone" class="w-full px-4 py-3 rounded-lg bg-blue-800 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            <label for="phone" class="block mb-2 text-sm font-medium">Telefone</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="Digite seu telefone" />
                         </div>
                         <div>
-                            <label for="service" class="block mb-2">Serviço de Interesse</label>
-                            <select id="service" class="w-full px-4 py-3 rounded-lg bg-blue-800 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            <label for="service" class="block mb-2 text-sm font-medium">Serviço de Interesse</label>
+                            <select id="service" class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-400">
                                 <option value="">Selecione um serviço</option>
-                                <option value="projetos">Projetos mecânicos com base nas NR-12/13, voltados à segurança ocupacional, eficiência operacional e melhoria de processos</option>
-                                <option value="pericia">Perícia Judicial/Extrajudicial</option>
-                                <option value="inspecoes">Inspeções técnicas de máquinas pesadas e vistorias veiculares com emissão de laudo e ART</option>
-                                <option value="pmoc">PMOC para Refrigeração</option>
-                                <option value="playground">Laudos para Playground</option>
-                                <option value="art">ART e RRT</option>
+                                <option value="Projetos mecânicos e adequações normativas">Projetos mecânicos e adequações normativas</option>
+                                <option value="Perícia judicial e extrajudicial">Perícia judicial e extrajudicial</option>
+                                <option value="Inspeções técnicas com laudo e ART">Inspeções técnicas com laudo e ART</option>
+                                <option value="PMOC para climatização">PMOC para climatização</option>
+                                <option value="Laudos para playground">Laudos para playground</option>
+                                <option value="ART e responsabilidade técnica">ART e responsabilidade técnica</option>
                             </select>
                         </div>
                         <div>
-                            <label for="message" class="block mb-2">Mensagem</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg bg-blue-800 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+                            <label for="message" class="block mb-2 text-sm font-medium">Mensagem</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="Descreva sua necessidade"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-6 rounded-lg transition duration-300">
-                            Enviar Mensagem
-                        </button>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <button type="submit" class="w-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold py-3 px-6 rounded-xl transition duration-300">
+                                Enviar pelo WhatsApp
+                            </button>
+                            <a href="mailto:contato@fujimuraengenharsolucoes.com.br?subject=Solicitação%20de%20Atendimento%20-%20Fujimura%20Engenhar%20Soluções" class="w-full text-center border border-slate-600 hover:border-amber-400 hover:text-amber-400 font-bold py-3 px-6 rounded-xl transition duration-300">
+                                Enviar por E-mail
+                            </a>
+                        </div>
                     </form>
                 </div>
-                
-                <div class="lg:w-1/2">
-                    <div class="bg-blue-800 p-8 rounded-lg h-full">
-                        <h3 class="text-2xl font-bold mb-6 text-yellow-300">Informações de Contato</h3>
-                        
+
+                <div class="space-y-6">
+                    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-xl">
+                        <h3 class="text-2xl font-bold mb-6 text-amber-400">Informações de Contato</h3>
+
                         <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="text-yellow-300 text-xl mt-1 mr-4">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
+                            <div class="flex items-start gap-4">
+                                <div class="text-amber-400 text-xl mt-1"><i class="fas fa-map-marker-alt"></i></div>
                                 <div>
                                     <h4 class="font-bold mb-1">Endereço</h4>
-                                    <p>Avenida Dona Dita, Nº 295, Centro<br>Santa Terezinha de Goiás - GO</p>
+                                    <p class="text-slate-300">Avenida Dona Dita, nº 295, Centro<br />Santa Terezinha de Goiás - GO</p>
                                 </div>
                             </div>
-                            
-                            <div class="flex items-start">
-                                <div class="text-yellow-300 text-xl mt-1 mr-4">
-                                    <i class="fas fa-phone-alt"></i>
-                                </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="text-amber-400 text-xl mt-1"><i class="fas fa-phone-alt"></i></div>
                                 <div>
                                     <h4 class="font-bold mb-1">Telefones</h4>
-                                    <p>(62) 99856-8684<br>(62) 98217-1623 (WhatsApp)</p>
-                                    
-                                    <div class="flex items-start">
-    <div class="text-yellow-300 text-xl mt-1 mr-4">
-        <i class="fas fa-user-cog"></i>
-    </div>
-    <div>
-        <h4 class="font-bold mb-1">Contato Técnico Adicional</h4>
-        <p>José de Souza – Especialista Técnico<br>(62) 9634-6486</p>
-    </div>
-</div>
-
+                                    <p class="text-slate-300">(62) 99856-8684<br />(62) 98217-1623 (WhatsApp)</p>
                                 </div>
                             </div>
-                            
-                            <div class="flex items-start">
-                                <div class="text-yellow-300 text-xl mt-1 mr-4">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="text-amber-400 text-xl mt-1"><i class="fas fa-envelope"></i></div>
                                 <div>
                                     <h4 class="font-bold mb-1">E-mail</h4>
-                                    <p>contato@fujimuraengenharsolucoes.com.br</p>
+                                    <p class="text-slate-300">contato@fujimuraengenharsolucoes.com.br</p>
                                 </div>
                             </div>
-                            
-                            <div class="flex items-start">
-                                <div class="text-yellow-300 text-xl mt-1 mr-4">
-                                    <i class="fas fa-globe"></i>
-                                </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="text-amber-400 text-xl mt-1"><i class="fas fa-globe"></i></div>
                                 <div>
                                     <h4 class="font-bold mb-1">Website</h4>
-                                    <p>fujimuraengenharsolucoes.com.br</p>
+                                    <p class="text-slate-300">www.fujimuraengenharsolucoes.com.br</p>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="mt-8">
-                            <h4 class="font-bold mb-4 text-yellow-300">Horário de Atendimento</h4>
-                            <p>Segunda a Sexta: 08:00 - 18:00<br>Sábado: 08:00 - 12:00</p>
-                        </div>
-                        
-                        <div class="mt-8 flex space-x-4">
-                            <a href="#" class="bg-blue-700 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition">
+                    </div>
+
+                    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-xl">
+                        <h4 class="font-bold mb-4 text-amber-400 text-xl">Horário de Atendimento</h4>
+                        <p class="text-slate-300 mb-6">Segunda a sexta: 08:00 às 18:00<br />Sábado: 08:00 às 12:00</p>
+
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#" class="bg-slate-800 hover:bg-slate-700 w-12 h-12 rounded-full flex items-center justify-center transition" aria-label="Facebook">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a href="#" class="bg-blue-700 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <a href="#" class="bg-slate-800 hover:bg-slate-700 w-12 h-12 rounded-full flex items-center justify-center transition" aria-label="Instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            <a href="#" class="bg-blue-700 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <a href="#" class="bg-slate-800 hover:bg-slate-700 w-12 h-12 rounded-full flex items-center justify-center transition" aria-label="LinkedIn">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="https://wa.me/5562982171623" class="bg-green-600 hover:bg-green-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <a href="https://wa.me/5562982171623?text=Olá%2C%20gostaria%20de%20falar%20com%20a%20Fujimura%20Engenhar%20Soluções." target="_blank" class="bg-green-600 hover:bg-green-700 w-12 h-12 rounded-full flex items-center justify-center transition" aria-label="WhatsApp">
                                 <i class="fab fa-whatsapp"></i>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="mt-16 map-container rounded-lg overflow-hidden shadow-xl">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.134388591671!2d-49.7073889247784!3d-14.72139648564256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9341d7e2e3a5a3a5%3A0x9c5d5d5d5d5d5d5d!2sAv.%20Dona%20Dita%2C%20295%2C%20Santa%20Terezinha%20de%20Goi%C3%A1s%20-%20GO!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+            <div class="mt-12 map-container rounded-3xl overflow-hidden shadow-2xl border border-slate-800">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.134388591671!2d-49.7073889247784!3d-14.72139648564256!2m3!1f0!2f0!3f0!2m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9341d7e2e3a5a3a5%3A0x9c5d5d5d5d5d5d5d!2sAv.%20Dona%20Dita%2C%20295%2C%20Santa%20Terezinha%20de%20Goi%C3%A1s%20-%20GO!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/5562982171623" class="fixed bottom-8 right-8 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-xl hover:bg-green-600 transition floating-button">
+    <a href="https://wa.me/5562982171623?text=Olá%2C%20gostaria%20de%20solicitar%20um%20atendimento." target="_blank" class="fixed bottom-8 right-8 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-xl hover:bg-green-600 transition floating-button z-50" aria-label="WhatsApp">
         <i class="fab fa-whatsapp text-3xl"></i>
     </a>
 
-    <!-- Footer -->
-    <footer class="bg-blue-950 text-white py-8">
+    <footer class="bg-black text-white py-8 border-t border-slate-800">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <div class="flex items-center">
-                        <div class="bg-white p-2 rounded-full mr-3">
-                            <i class="fas fa-cogs text-blue-900 text-xl"></i>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <div class="flex items-center gap-3 justify-center md:justify-start">
+                        <div class="bg-amber-400 text-slate-950 w-11 h-11 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-cogs"></i>
                         </div>
-                        <h2 class="text-xl font-bold">Fujimura <span class="text-yellow-300">Engenhar</span> Soluções</h2>
+                        <div>
+                            <h2 class="text-xl font-bold">Fujimura <span class="text-amber-400">Engenhar</span> Soluções</h2>
+                            <p class="text-sm text-slate-400">Excelência em serviços de engenharia</p>
+                        </div>
                     </div>
-                    <p class="mt-2 text-sm text-gray-300">Excelência em serviços de engenharia</p>
                 </div>
-                
+
                 <div class="text-center md:text-right">
-                    <p class="text-sm text-gray-300">© 2023 Fujimura Engenhar Soluções. Todos os direitos reservados.</p>
-                    <p class="text-sm text-gray-300 mt-1">CNPJ: 61.487.863/0001-20</p>
+                    <p class="text-sm text-slate-400">© 2026 Fujimura Engenhar Soluções. Todos os direitos reservados.</p>
+                    <p class="text-sm text-slate-400 mt-1">CNPJ: 61.487.863/0001-20</p>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        
+
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-        
-        // Smooth scrolling for anchor links
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
+                const targetSelector = this.getAttribute('href');
+                const target = document.querySelector(targetSelector);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+
                 if (!mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
                 }
             });
         });
-        
-        // Form submission (example)
-        const form = document.querySelector('form');
+
+        const form = document.getElementById('contact-form');
         if (form) {
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
-                alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-                form.reset();
+
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const service = document.getElementById('service').value.trim();
+                const message = document.getElementById('message').value.trim();
+
+                const text = `Olá, gostaria de solicitar um atendimento da Fujimura Engenhar Soluções.%0A%0A` +
+                    `Nome: ${name || '-'}%0A` +
+                    `E-mail: ${email || '-'}%0A` +
+                    `Telefone: ${phone || '-'}%0A` +
+                    `Serviço de interesse: ${service || '-'}%0A` +
+                    `Mensagem: ${message || '-'}`;
+
+                window.open(`https://wa.me/5562982171623?text=${text}`, '_blank');
             });
         }
     </script>
